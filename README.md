@@ -46,7 +46,8 @@ chinook-portfolio/
 │
 ├── README.md
 ├── queries.sql
-├── business_questions.md
+├── business_problems.md
+├── answers.md
 └── screenshots/
 ```
 
