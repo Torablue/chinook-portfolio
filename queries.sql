@@ -1,4 +1,4 @@
---1
+--1a
 select t.name as "Track", al.title as "Album" , ar.name as "Artist", sum(il.quantity) as total_sold from track t
 join invoice_line il on il.track_id =t.track_id
 join album al on t.album_id =al.album_id 
@@ -7,6 +7,15 @@ group by t.track_id, t.name, al.title, ar.name
 order by total_sold desc
 limit 10
 
+--1b
+select t.name as "Track" , ar.name as "Artist", sum(il.quantity) as total_sold from track t
+join invoice_line il on il.track_id =t.track_id
+join album al on t.album_id =al.album_id 
+join artist ar on al.artist_id =ar.artist_id 
+group by t.name, ar.name
+order by total_sold desc
+limit 10
+  
 --2
 select i.billing_country as country, sum(i.total) as Total_revenue from invoice i
 group by i.billing_country
