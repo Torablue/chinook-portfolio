@@ -32,6 +32,7 @@ div(t.milliseconds,60000)||':'||lpad((mod(t.milliseconds,60000)/1000)::text,2,'0
 join album al on al.album_id =t.album_id 
 join artist a on a.artist_id=al.artist_id 
 where t.milliseconds >300000
+order by t.milliseconds desc 
 
 --5
 select a.title as album , ar.name as artist from album a join artist ar on a.artist_id =ar.artist_id 
