@@ -41,6 +41,15 @@ Further analysis would be needed to determine whether this concentration is caus
 
 
 ## 3. List all customers where the phone field is NULL.
+### Missing Customer Phone Numbers
+
+Only one customer record does not contain a phone number.
+
+However, the customer's email address is available, providing an alternative communication channel if contact is required.
+
+This suggests that missing phone information is not currently a significant data quality issue within the customer database.
+
+
 ## 4. Find all tracks with a duration over 300,000 milliseconds.
 ## 5. Retrieve all albums for Aerosmith.
 ## 6. Count how many tracks belong to each genre and sort descending
