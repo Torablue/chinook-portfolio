@@ -1,6 +1,6 @@
-##Analysis Result
+Analysis Result
 
-##1. Find the 10 most purchased tracks by total quantity sold.
+1. Find the 10 most purchased tracks by total quantity sold.
 ## Most Purchased Tracks
 
 Two approaches were used to analyze track sales.
