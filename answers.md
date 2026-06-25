@@ -1,7 +1,6 @@
-Analysis Result
+# Analysis Result
 
-1. Find the 10 most purchased tracks by total quantity sold.
-## Most Purchased Tracks
+## 1. Find the 10 most purchased tracks by total quantity sold.
 
 Two approaches were used to analyze track sales.
 
@@ -29,9 +28,20 @@ This analysis demonstrates how different grouping methods can lead to different 
 
 
 
-2. Calculate total invoice revenue for each billing country.
-3. List all customers where the phone field is NULL.
-4. Find all tracks with a duration over 300,000 milliseconds.
-5. Retrieve all albums for Aerosmith.
-6. Count how many tracks belong to each genre and sort descending
-7. Find customers who have no records in the Invoice table.
+## 2. Calculate total invoice revenue for each billing country.
+### Revenue by Country
+
+The United States generated the highest total revenue, exceeding the second-ranked country by more than 200.
+
+Canada ranked second, with a gap of more than 100 compared to the third-ranked country. The remaining countries showed relatively small differences in revenue.
+
+This indicates that revenue is heavily concentrated in the United States and Canada, while other markets contribute considerably less to total sales.
+
+Further analysis would be needed to determine whether this concentration is caused by customer preferences, market size, or differences in market presence across countries.
+
+
+## 3. List all customers where the phone field is NULL.
+## 4. Find all tracks with a duration over 300,000 milliseconds.
+## 5. Retrieve all albums for Aerosmith.
+## 6. Count how many tracks belong to each genre and sort descending
+## 7. Find customers who have no records in the Invoice table.
