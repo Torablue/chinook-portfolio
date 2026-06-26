@@ -3,5 +3,8 @@
 3. List all customers where the phone field is NULL.
 4. Find all tracks with a duration over 300,000 milliseconds.
 5. Retrieve all albums for Aerosmith.
-6. Count how many tracks belong to each genre and sort descending
+6. Count how many tracks belong to each genre and sort descending.
 7. Find customers who have no records in the Invoice table.
+8. Aggregate total invoice amounts by year and month.
+9. For each billing country, identify the customer with the highest total spend.
+10. Link invoices back to the sales rep and compute average order value.
