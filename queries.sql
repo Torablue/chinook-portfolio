@@ -49,3 +49,29 @@ from customer c
 left join invoice i on i.customer_id = c.customer_id
 where i.invoice_id is null
 order by c.last_name;
+
+--8
+select to_char(i.invoice_date,'YYYY-MM' ) AS year_month, sum(i.total) as total_revenue
+from invoice i
+group by year_month 
+order by year_month
+
+--9
+with ranked_customer as (select c.first_name ||' '||c.last_name as "customer_name", c.country, sum(i.total) as total_spending,
+rank() over(
+	partition by c.country  
+	order by sum(i.total) desc
+) as ranking
+from invoice i
+join customer c on c.customer_id=i.customer_id
+group by c.customer_id, c.country
+order by c.country asc,sum(i.total) desc)
+select r.customer_name, r.country, r.total_spending from ranked_customer r where ranking =1
+order by r.country 
+
+--10
+select e.first_name ||' '||e.last_name as employee_name, round(avg(i.total),2) as avg_invoice_value from invoice i
+join customer c on i.customer_id =c.customer_id 
+join employee e on c.support_rep_id =e.employee_id 
+group by e.employee_id 
+order by avg_invoice_value 
