@@ -25,9 +25,9 @@ The Chinook database represents a digital music store, containing information ab
 * JOINs
 * GROUP BY and aggregation
 * ORDER BY
-* Subqueries*
-* Common Table Expressions (CTEs)*
-* Window Functions*
+* Subqueries
+* Common Table Expressions (CTEs)
+* Window Functions
 
 ## Business Questions
 
