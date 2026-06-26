@@ -75,3 +75,57 @@ join customer c on i.customer_id =c.customer_id
 join employee e on c.support_rep_id =e.employee_id 
 group by e.employee_id 
 order by avg_invoice_value 
+
+--11
+with genre_ranking as(select c.country as "country", g.name as "genre", count(il.invoice_line_id) as purchase_count,
+rank()over(
+	partition by c.country
+	order by count(g.genre_id) desc)as ranking
+from invoice i
+join customer c on i.customer_id =c.customer_id
+join invoice_line il on il.invoice_id =i.invoice_id 
+join track t on t.track_id =il.track_id 
+join genre g on g.genre_id =t.genre_id 
+group by c.country, g.genre_id )
+select r.country as "country", r."genre", r.purchase_count from genre_ranking r
+where r.ranking =1
+order by r.country asc
+
+--12
+select t.name as track_name, ar."name" as artist, a.title as album from invoice_line il right join track t on t.track_id =il.track_id
+join album a on a.album_id =t.album_id 
+join artist ar on a.artist_id =ar.artist_id 
+where il.track_id is null
+order by t.name
+
+--13
+select e.first_name ||' ' ||e.last_name as employee_name, sum(i.total ) as total_revenue from invoice i
+join customer c on i.customer_id =c.customer_id 
+join employee e on c.support_rep_id =e.employee_id 
+group by e.employee_id 
+order by total_revenue desc 
+
+--14
+with year_sort as (select c.customer_id, c.first_name, extract(year from i.invoice_date) as cohort_year,
+	row_number()over(partition by c.customer_id
+	order by i.invoice_date) as rn
+	from customer c join invoice i on c.customer_id = i.customer_id),
+get_id as (select ys.customer_id, ys.cohort_year
+	from year_sort ys
+	where ys.rn =1)
+select gi.cohort_year, sum(i.total) as total_rev, count(gi.customer_id ) as customer_count,
+round(sum(i.total)/count(gi.customer_id ),2)as avg_revenue_per_customer
+from get_id gi join invoice i on gi.customer_id = i.customer_id
+group by gi.cohort_year 
+order by cohort_year asc 
+
+--15
+with daily_rev as(
+	select to_char(i.invoice_date,'dd-mm-yyyy') as buy_date,
+	sum(i.total) as daily_revenue, i.invoice_date 
+from invoice i 
+group by i.invoice_date )
+select dr.buy_date, dr.daily_revenue,
+sum(dr.daily_revenue) over(order by dr.invoice_date) as cumulative_rev
+from daily_rev dr
+order by dr.invoice_date 
