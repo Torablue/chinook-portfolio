@@ -13,3 +13,4 @@
 13. Total revenue attributed to each sales support agent via customer invoices.
 14. Group customers by their first purchase year and compare total spend per cohort.
 15. Compute a cumulative revenue sum ordered by invoice date.
+16. Rank tracks within each genre.
