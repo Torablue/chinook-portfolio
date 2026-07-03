@@ -129,3 +129,12 @@ select dr.buy_date, dr.daily_revenue,
 sum(dr.daily_revenue) over(order by dr.invoice_date) as cumulative_rev
 from daily_rev dr
 order by dr.invoice_date 
+
+--16
+select t."name" , g."name" as "genre" , count(t.track_id) as "total_sale",
+rank() over(partition by g.genre_id
+order by count(t.track_id) desc) as ra
+from track t join genre g on t.genre_id = g.genre_id
+join invoice_line il on t.track_id =il.track_id
+group by g.genre_id,t.track_id  
+order by genre asc, ra asc
