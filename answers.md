@@ -1,6 +1,6 @@
 # Analysis Result
 
-## 1. Find the 10 most purchased tracks by total quantity sold.
+## 1. Top 10 best-selling tracks
 
 Two approaches were used to analyze track sales.
 
@@ -28,8 +28,8 @@ This analysis demonstrates how different grouping methods can lead to different 
 
 
 
-## 2. Calculate total invoice revenue for each billing country.
-### Revenue by Country
+## 2. Revenue by country
+### Calculate total invoice revenue for each billing country.
 
 The United States generated the highest total revenue, exceeding the second-ranked country by more than 200.
 
@@ -40,7 +40,7 @@ This indicates that revenue is heavily concentrated in the United States and Can
 Further analysis would be needed to determine whether this concentration is caused by customer preferences, market size, or differences in market presence across countries.
 
 
-## 3. List all customers where the phone field is NULL.
+## 3. Customers without a phone number
 ### Missing Customer Phone Numbers
 
 Only one customer record does not contain a phone number.
@@ -50,7 +50,16 @@ However, the customer's email address is available, providing an alternative com
 This suggests that missing phone information is not currently a significant data quality issue within the customer database.
 
 
-## 4. Find all tracks with a duration over 300,000 milliseconds.
-## 5. Retrieve all albums for Aerosmith.
-## 6. Count how many tracks belong to each genre and sort descending
-## 7. Find customers who have no records in the Invoice table.
+## 4. Tracks longer than 5 minutes
+## 5. Albums by a specific artist
+## 6. Genres with the most tracks
+## 7. Customers who never bought anything
+## 8. Monthly revenue trend
+## 9. Top-spending customer per country
+## 10. Average invoice value by employee's customers
+## 11. Most popular genre per country
+## 12. Tracks never sold
+## 13. Employee sales performance
+## 14. Customer lifetime value cohort
+## 15. Running total of revenue
+## 16. Rank tracks within each genre
